@@ -1,0 +1,202 @@
+EJERCICIO 1 (zumbido o fizz)
+paquete com.ejemplo.recuperacion;
+
+importar javafx.application.Application;
+importar javafx.fxml.FXMLLoader;
+importar javafx.scene.Scene;
+importar javafx.stage.Stage;
+
+importar java.io.IOException;
+
+clase pública HolaAplicación {
+
+    público estático vacío principal (String [] argumentos) {
+        para (int i = 1; i <= 100; i++) {
+
+            si (yo % 3 == 0 && yo % 5 == 0) {
+                System.out.println("FizzBuzz");
+            }si no (i % 3 == 0 ) {
+                System.out.println("Fizz");
+            }si no (i % 5 == 0) {
+                System.out.println("Zumbido");
+            }demás {
+                System.out.println(i);
+            }
+
+        }
+    }
+}
+
+EJERCICIO 2 (piedra papel y tijeras)
+paquete com.ejemplo.demo;
+
+importar javafx.application.Application;
+importar javafx.fxml.FXMLLoader;
+importar javafx.scene.Scene;
+importar javafx.stage.Stage;
+
+importar java.io.IOException;
+importar java.util.Scanner;
+
+
+clase pública HolaAplicación {
+
+    público estático vacío principal (String [] argumentos) {
+        Escáner escáner = nuevo escáner (System.in);
+        int Jugador1 = 0;
+        int Jugador2 = 0;
+
+        System.out.println("Ingrese 'r' para piedra, 'p' para papel o 's' para tijeras.");
+        System.out.println("Ingrese 'fin' para finalizar el juego");
+
+        mientras (verdadero) {
+            System.out.print("Jugador 1: ");
+            String play1 = scanner.nextLine();
+
+            si (play1.equals ("fin")) {
+                romper;
+            }
+
+            System.out.print("Jugador 2: ");
+            Cadena play2 = scanner.nextLine();
+
+            si (play2.equals ("fin")) {
+                romper;
+
+        }
+
+        si (jugar1.equals(jugar2)) {
+            System.out.println("¡empate!");
+        } else if ((play1.equals("r") && play2.equals("s")) ||
+                (play1.equals("p") && play2.equals("r")) ||
+                (play1.equals("s") && play2.equals("p"))) {
+            System.out.println("¡El jugador 1 ganó!");
+            Jugador1++;
+        } demás {
+            System.out.println("¡El jugador 2 ganó!");
+            Jugador2++;
+        }
+    }
+
+        System.out.println("El jugador 1 ganó " + Jugador1 + " elementos.");
+        System.out.println("El jugador 2 ganó " + Jugador2 + " elementos.");
+
+        si (Jugador1 > Jugador2) {
+        System.out.println("¡¡El jugador 1 ganó el juego!");
+    } más si (Jugador1 <Jugador2) {
+        System.out.println("¡¡El jugador 2 ganó el juego!");
+    } demás {
+        System.out.println("¡jugador 1 y jugador 2 empatados!");
+    }
+
+        escáner.close();
+    }
+}
+
+EJERCICIO 3 (ESCALERA)
+paquete com.ejemplo.demo1;
+
+importar javafx.application.Application;
+importar javafx.fxml.FXMLLoader;
+importar javafx.scene.Scene;
+importar javafx.stage.Stage;
+importar java.util.Scanner;
+importar java.io.IOException;
+
+clase pública HelloApplication extiende la aplicación {
+    @Anular
+    inicio público vacío (etapa) lanza IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Escena escena = nueva escena (fxmlLoader.load(), 320, 240);
+        stage.setTitle("¡Hola!");
+        escenario.setScene(escena);
+        Show de escenario();
+    }
+
+    público estático vacío principal (String [] argumentos) {
+        Escáner escáner = nuevo escáner (System.in);
+        System.out.print("Ingrese el número de los pasos: ");
+        número int = escáner.nextInt();
+
+        si (número > 0) {
+            para (int i = 1; i <= número; i++) {
+                for (int j = 1; j <= número - i; j++) {
+                    Sistema.out.print(" ");
+                }
+                System.out.print("_|");
+                Sistema.out.println();
+            }
+
+
+
+        } más si (número < 0 ) {
+            para (int i = número; i <= 1; i++) {
+                for (int j = número; j < i; j++) {
+                    Sistema.out.print(" ");
+                }
+                System.out.print("|_");
+                Sistema.out.println();
+            }
+        } si no (número == 0) {
+            System.out.println("");
+        }
+    }
+}
+
+EJERCICIO 4 (ROBOT)
+paquete com.ejemplo.demo2;
+
+importar javafx.application.Application;
+importar javafx.fxml.FXMLLoader;
+importar javafx.scene.Scene;
+importar javafx.stage.Stage;
+
+importar java.io.IOException;
+importar java.util.Scanner;
+clase pública HolaAplicación {
+    dirección de enumeración privada {
+        POSITIVO_Y, NEGATIVO_X, NEGATIVO_Y, POSITIVO_X;
+
+        giro de dirección pública() {
+            cambiar (esto) {
+                caso POSITIVE_Y: devuelve NEGATIVE_X;
+                caso NEGATIVE_X: devolver NEGATIVE_Y;
+                caso NEGATIVE_Y: devuelve POSITIVE_X;
+                caso POSITIVE_X: devolver POSITIVE_Y;
+                predeterminado: lanzar nueva IllegalArgumentException ("Dirección no válida");
+            }
+        }
+    }
+
+    público estático vacío principal (String [] argumentos) {
+        Escáner escáner = nuevo escáner (System.in);
+
+        System.out.println("Ingrese la secuencia de pasos separados por espacios:");
+        Entrada de cadena = scanner.nextLine();
+        String[] pasosString = input.split(" ");
+        int[] pasos = nuevo int[stepsString.length];
+        for (int i = 0; i <stepString.length; i++) {
+            pasos[i] = Integer.parseInt(stepsString[i]);
+        }
+
+        System.out.println(dondeEstáElRobot(pasos));
+    }
+
+    Cadena estática privada donde está el robot (int [] pasos) {
+        int x = 0;
+        int y = 0;
+        Dirección dirección = Dirección.POSITIVE_Y;
+
+        para (int paso: pasos) {
+            cambiar (dirección) {
+                caso POSITIVE_Y: y += paso; romper;
+                caso NEGATIVE_X: x -= paso; romper;
+                caso NEGATIVE_Y: y -= paso; romper;
+                caso POSITIVE_X: x += paso; romper;
+            }
+            dirección = dirección.giro();
+        }
+
+        devolver "x: " + x + ", y: " + y + ", dirección: " + dirección;
+    }
+}
